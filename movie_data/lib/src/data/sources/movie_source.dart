@@ -1,0 +1,22 @@
+import 'package:movie_data/src/data/database/models/favorite.dart';
+import 'package:movie_data/src/data/models/models.dart';
+
+// Interface : toutes les sources de films doivent fournir ces méthodes.
+// "abstract" : on ne peut pas créer directement un MovieSource.
+abstract class MovieSource {
+  Future<List<Genre>> getGenres();
+  Future<MovieResponse?> getTrending(int page);
+  Future<MovieResponse?> getNowPlaying(int page);
+  Future<MovieResponse?> getTopRated(int page);
+  Future<MovieResponse?> getPopular(int page);
+  Future<MovieResponse?> searchMovies(String query, int page);
+  Future<MovieResponse?> searchMoviesByGenre(String genre, int page);
+  Future<MovieDetails?> getMovieDetails(int movieId);
+  Future<MovieVideos?> getMovieVideos(int movieId);
+  Future<MovieConfiguration?> getMovieConfiguration();
+  Future<MovieCredits?> getMovieCredits(int movieId);
+  Future saveFavorite(MovieDetails movieDetails);
+  Future<bool> removeFavorite(int id);
+  Future<List<DBFavorite>> getFavorites();
+  Stream<List<DBFavorite>> streamFavorites();
+}

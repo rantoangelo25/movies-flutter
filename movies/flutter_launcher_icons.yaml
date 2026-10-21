@@ -1,0 +1,10 @@
+# Génération des icônes Android avec : dart run flutter_launcher_icons
+flutter_launcher_icons:
+  android: true
+  ios: false
+  # Icône classique (anciens Android)
+  image_path: "assets/icon/icon.png"
+  # Icône adaptative (Android 8 et plus) : fond uni + symbole au centre
+  adaptive_icon_background: "#111111"
+  adaptive_icon_foreground: "assets/icon/icon_foreground.png"
+  min_sdk_android: 21

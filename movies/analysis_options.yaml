@@ -1,0 +1,17 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  errors:
+    # Évite les avertissements sur @JsonKey dans les classes freezed
+    invalid_annotation_target: ignore
+  exclude:
+    - build/**
+    - android/**
+    - web/**
+    - linux/**
+
+linter:
+  rules:
+    avoid_relative_lib_imports: true
+    always_use_package_imports: true
+    prefer_relative_imports: false

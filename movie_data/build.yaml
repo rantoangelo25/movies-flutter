@@ -1,0 +1,11 @@
+# Options de json_serializable pour tout le projet :
+# explicit_to_json enregistre correctement les objets imbriqués
+# (comme "images" dans la configuration), include_if_null n'écrit pas
+# les champs vides.
+targets:
+  $default:
+    builders:
+      json_serializable|json_serializable:
+        options:
+          explicit_to_json: true
+          include_if_null: false
