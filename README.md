@@ -84,7 +84,7 @@ movie_plugin/           Plugin natif
 ### 1. Cloner le dépôt
 
 ```bash
-git clone https://github.com/<votre-pseudo>/movies-flutter.git
+git clone https://github.com/TON_PSEUDO/movies-flutter.git
 cd movies-flutter
 ```
 
