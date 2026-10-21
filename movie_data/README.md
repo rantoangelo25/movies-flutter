@@ -1,18 +1,18 @@
 # movie_data
 
-Package Dart qui regroupe toute la partie **données** de l'application *Movies*.
+Dart package containing the whole **data layer** of the *Movies* app.
 
-## Contenu
+## Contents
 
-- **Réseau** : `MovieAPIService` (Dio) pour l'API [TMDB](https://www.themoviedb.org/) — films tendance, à l'affiche, populaires, mieux notés, détails, vidéos, acteurs, genres, recherche.
-- **Modèles** générés avec freezed et json_serializable (`MovieResults`, `MovieDetails`, `MovieVideos`, `MovieCredits`, `Genre`…).
-- **Bases de données** derrière une même interface `IDatabase` :
-  - `DriftDatabase` : base SQLite locale (drift) ;
-  - `FirebaseDatabase` : base en ligne Cloud Firestore.
-- **Sources et dépôt** : `NetworkMovieSource` et `MovieRepository`, qui choisit entre le réseau et la base locale.
-- **Connexion** : `AuthService` (Firebase Authentication et Google).
+- **Networking**: `MovieAPIService` (Dio) for the [TMDB](https://www.themoviedb.org/) API — trending, now playing, popular and top rated movies, details, videos, credits, genres and search.
+- **Models** generated with freezed and json_serializable (`MovieResults`, `MovieDetails`, `MovieVideos`, `MovieCredits`, `Genre`…).
+- **Databases** behind a common `IDatabase` interface:
+  - `DriftDatabase`: local SQLite database (drift);
+  - `FirebaseDatabase`: Cloud Firestore online database.
+- **Sources and repository**: `NetworkMovieSource` and `MovieRepository`, which chooses between the network and the local database.
+- **Authentication**: `AuthService` (Firebase Authentication with Google).
 
-## Utilisation
+## Usage
 
 ```yaml
 dependencies:
@@ -29,9 +29,9 @@ final repository = MovieRepository(NetworkMovieSource(service), DriftDatabase())
 final trending = await repository.getTrending(1);
 ```
 
-La clé TMDB et l'ID client Google sont fournis par l'application : le package ne lit pas de fichier `.env`.
+The TMDB key and the Google client ID are provided by the app: the package does not read any `.env` file.
 
-## Génération du code
+## Code generation
 
 ```bash
 flutter pub get

@@ -1,3 +1,3 @@
 ## 0.0.1
 
-* Première version : chaînes, entiers, décimaux et booléens sur Android (Kotlin, SharedPreferences).
+* Initial release: strings, ints, doubles and booleans on Android (Kotlin, SharedPreferences).

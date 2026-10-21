@@ -1,5 +1,5 @@
-# Dépôt placé dans ~/Projects/devmobile : on ne publie QUE les trois projets
-# (le SDK Flutter, les projets d'essai et les sauvegardes restent en local)
+# The repository lives in ~/Projects/devmobile: ONLY the three projects are
+# published (the Flutter SDK, test projects and backups stay local)
 /*
 !/.gitignore
 !/README.md
@@ -9,7 +9,7 @@
 !/movie_data/
 !/movie_plugin/
 
-# Secrets et configuration personnelle (jamais sur GitHub)
+# Secrets and personal configuration (never on GitHub)
 .env
 *.keystore
 *.jks
@@ -19,7 +19,7 @@ GoogleService-Info.plist
 firebase_options.dart
 firebase.json
 
-# Fichiers générés
+# Generated files
 build/
 .dart_tool/
 .idea/

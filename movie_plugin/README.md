@@ -1,24 +1,24 @@
 # movie_plugin
 
-Plugin Flutter qui réimplémente, pour Android, un stockage simple de préférences
-(équivalent de `shared_preferences`), à l'aide des `SharedPreferences` natives d'Android.
+Flutter plugin that re-implements, for Android, simple key/value preference storage
+(similar to `shared_preferences`), using Android's native `SharedPreferences`.
 
-## Fonctionnement
+## How it works
 
-Le code Dart envoie chaque appel au code natif Kotlin par un `MethodChannel` nommé `movie_plugin` :
+The Dart code sends each call to the native Kotlin code through a `MethodChannel` named `movie_plugin`:
 
 ```
 MoviePlugin (Dart) ──invokeMethod──▶ MethodChannel ──▶ MoviePlugin.kt (Kotlin) ──▶ SharedPreferences
 ```
 
-| Fichier | Rôle |
+| File | Purpose |
 |---|---|
-| `lib/movie_plugin.dart` | Point d'entrée utilisé par l'application |
-| `lib/movie_plugin_platform_interface.dart` | Interface commune aux plateformes |
-| `lib/movie_plugin_method_channel.dart` | Implémentation par `MethodChannel` |
-| `android/src/main/kotlin/com/bpb/movie_plugin/MoviePlugin.kt` | Code natif Android |
+| `lib/movie_plugin.dart` | Entry point used by the app |
+| `lib/movie_plugin_platform_interface.dart` | Common platform interface |
+| `lib/movie_plugin_method_channel.dart` | `MethodChannel` implementation |
+| `android/src/main/kotlin/com/bpb/movie_plugin/MoviePlugin.kt` | Native Android code |
 
-## Méthodes
+## Methods
 
 `getString` / `setString`, `getInt` / `setInt`, `getDouble` / `setDouble`,
 `getBool` / `setBool`, `containsKey`, `clear`.
@@ -29,15 +29,15 @@ await plugin.setString('GenreKey', 'Action,Comedy');
 final genres = await plugin.getString('GenreKey');
 ```
 
-## Plateformes
+## Platforms
 
 | Android | iOS | Linux / Windows / macOS / Web |
 |:---:|:---:|:---:|
-| ✅ | ❌ (non réalisé : nécessite un Mac) | ❌ |
+| ✅ | ❌ (not implemented: requires a Mac) | ❌ |
 
-## Exemple et tests
+## Example and tests
 
 ```bash
-cd example && flutter run      # application de démonstration
-flutter test                   # tests unitaires (plateforme simulée)
+cd example && flutter run      # demo app
+flutter test                   # unit tests (mocked platform)
 ```

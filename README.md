@@ -1,96 +1,96 @@
 <p align="center">
-  <img src="docs/screenshots/icone.png" width="120" alt="Icône de l'application Movies">
+  <img src="docs/screenshots/icon.png" width="120" alt="Movies app icon">
 </p>
 
 <h1 align="center">Movies</h1>
 
 <p align="center">
-  Application mobile Flutter pour découvrir des films, regarder leurs bandes-annonces et gérer ses favoris.<br>
-  Projet de travaux pratiques réalisé en suivant le livre <i>Mastering Flutter</i> de Kevin Moore.
+  A Flutter mobile app to discover movies, watch their trailers and manage your favorites.<br>
+  Built as a hands-on project following the book <i>Mastering Flutter</i> by Kevin Moore.
 </p>
 
 ---
 
-## Aperçu
+## Screenshots
 
-| Accueil | Détails | Recherche | Liste « More » | Favoris |
+| Home | Details | Search | "More" listing | Favorites |
 |:---:|:---:|:---:|:---:|:---:|
-| <img src="docs/screenshots/accueil.png" width="160"> | <img src="docs/screenshots/details.png" width="160"> | <img src="docs/screenshots/recherche.png" width="160"> | <img src="docs/screenshots/liste.png" width="160"> | <img src="docs/screenshots/favoris.png" width="160"> |
+| <img src="docs/screenshots/home.png" width="160"> | <img src="docs/screenshots/details.png" width="160"> | <img src="docs/screenshots/search.png" width="160"> | <img src="docs/screenshots/listing.png" width="160"> | <img src="docs/screenshots/favorites.png" width="160"> |
 
-Version Linux desktop, avec le rail de navigation sur grand écran :
+Linux desktop version, with a navigation rail on large screens:
 
 <img src="docs/screenshots/linux.png" width="480">
 
-## Fonctionnalités
+## Features
 
-- **Accueil** : carrousel des films à l'affiche et rangées *Trending*, *Popular* et *Top Rated* (données réelles de l'API TMDB).
-- **Listes complètes** de chaque catégorie avec **défilement infini**.
-- **Recherche** par titre et par genre, avec tri (A-Z, Z-A, popularité, année).
-- **Page de détails** : image, genres, résumé, **bandes-annonces YouTube** et acteurs.
-- **Favoris** enregistrés dans le cloud (**Cloud Firestore**), synchronisés en temps réel.
-- **Connexion avec un compte Google** (Firebase Authentication).
-- **Suivi des plantages** avec Firebase Crashlytics.
-- **Animations** : transitions Hero, fondus, rebonds, cœur animé.
-- **Interface adaptative** : barre de navigation en bas sur téléphone, rail à gauche sur grand écran.
-- **Plugin natif Kotlin** (`movie_plugin`) pour mémoriser les genres choisis.
+- **Home screen**: carousel of movies now playing and *Trending*, *Popular* and *Top Rated* rows (real data from the TMDB API).
+- **Full listings** for each category with **infinite scrolling**.
+- **Search** by title and genre, with sorting (A-Z, Z-A, popularity, year).
+- **Details page**: backdrop, genres, overview, **YouTube trailers** and cast.
+- **Favorites** stored in the cloud (**Cloud Firestore**), synchronized in real time.
+- **Sign in with Google** (Firebase Authentication).
+- **Crash reporting** with Firebase Crashlytics.
+- **Animations**: Hero transitions, fades, bounces, animated heart.
+- **Adaptive layout**: bottom navigation bar on phones, navigation rail on large screens.
+- **Native Kotlin plugin** (`movie_plugin`) to remember the selected genres.
 
-## Organisation du dépôt
+## Repository structure
 
-Le dépôt contient trois projets Flutter, placés côte à côte :
+The repository contains three Flutter projects, side by side:
 
-| Dossier | Rôle |
+| Folder | Purpose |
 |---|---|
-| [`movies/`](movies) | L'application (interface, navigation, view model, tests) |
-| [`movie_data/`](movie_data) | Package Dart : API TMDB, modèles, bases de données drift et Firestore, dépôt (repository) |
-| [`movie_plugin/`](movie_plugin) | Plugin natif Android (Kotlin) : enregistrement de préférences simples |
+| [`movies/`](movies) | The app (UI, navigation, view model, tests) |
+| [`movie_data/`](movie_data) | Dart package: TMDB API, models, drift and Firestore databases, repository |
+| [`movie_plugin/`](movie_plugin) | Native Android plugin (Kotlin): simple key/value storage |
 
 ```
-movies/                 Application
+movies/                 App
  ├─ lib/
  │   ├─ main.dart
- │   ├─ providers.dart  Providers Riverpod
+ │   ├─ providers.dart  Riverpod providers
  │   ├─ router/         Navigation (AutoRoute)
- │   ├─ ui/             Écrans, widgets, thème, view model
- │   └─ utils/          Fonctions utilitaires, préférences
- ├─ test/               Tests de widgets
- └─ integration_test/   Test d'intégration
-movie_data/             Package des données
-movie_plugin/           Plugin natif
+ │   ├─ ui/             Screens, widgets, theme, view model
+ │   └─ utils/          Utilities, preferences
+ ├─ test/               Widget tests
+ └─ integration_test/   Integration test
+movie_data/             Data package
+movie_plugin/           Native plugin
 ```
 
-## Technologies
+## Tech stack
 
-| Domaine | Outils |
+| Area | Tools |
 |---|---|
 | Framework | Flutter 3.47, Dart 3.13 |
-| Gestion de l'état | Riverpod 3 (avec génération de code) |
-| Navigation | AutoRoute (liens profonds `movieapp://bpb.com/details/<id>`) |
-| Réseau | Dio, API [The Movie Database (TMDB)](https://www.themoviedb.org/) |
-| Modèles | freezed, json_serializable |
-| Bases de données | drift (SQLite local), Cloud Firestore |
+| State management | Riverpod 3 (with code generation) |
+| Navigation | AutoRoute (deep links `movieapp://bpb.com/details/<id>`) |
+| Networking | Dio, [The Movie Database (TMDB)](https://www.themoviedb.org/) API |
+| Models | freezed, json_serializable |
+| Databases | drift (local SQLite), Cloud Firestore |
 | Firebase | Authentication (Google), Firestore, Crashlytics |
-| Interface | cached_network_image, card_swiper, flutter_animate, google_fonts, infinite_scroll_pagination, pod_player |
-| Tests | flutter_test, integration_test |
+| UI | cached_network_image, card_swiper, flutter_animate, google_fonts, infinite_scroll_pagination, pod_player |
+| Testing | flutter_test, integration_test |
 
-## Installation
+## Getting started
 
-### Prérequis
+### Requirements
 
-- Flutter 3.47 ou plus récent ([installation](https://docs.flutter.dev/get-started/install))
-- Android Studio (SDK Android et émulateur)
-- Une clé d'API [TMDB](https://www.themoviedb.org/settings/api) (gratuite)
-- Un projet [Firebase](https://console.firebase.google.com/) avec Cloud Firestore et la connexion Google activés
+- Flutter 3.47 or later ([installation](https://docs.flutter.dev/get-started/install))
+- Android Studio (Android SDK and emulator)
+- A free [TMDB](https://www.themoviedb.org/settings/api) API key
+- A [Firebase](https://console.firebase.google.com/) project with Cloud Firestore and Google sign-in enabled
 
-### 1. Cloner le dépôt
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/rantoangelo25/movies-flutter.git
 cd movies-flutter
 ```
 
-### 2. Fichier `.env`
+### 2. `.env` file
 
-Les clés ne sont pas publiées dans le dépôt. Copiez le modèle puis complétez-le :
+Keys are not published in this repository. Copy the template and fill it in:
 
 ```bash
 cd movies
@@ -98,33 +98,33 @@ cp .env.example .env
 ```
 
 ```
-TMDB_KEY='votre_cle_tmdb'
-GOOGLE_WEB_CLIENT_ID='votre_id_client_web.apps.googleusercontent.com'
+TMDB_KEY='your_tmdb_key'
+GOOGLE_WEB_CLIENT_ID='your_web_client_id.apps.googleusercontent.com'
 ```
 
-### 3. Configuration Firebase
+### 3. Firebase setup
 
-Les fichiers de configuration Firebase ne sont pas publiés non plus. Générez-les pour votre propre projet Firebase :
+Firebase configuration files are not published either. Generate them for your own Firebase project:
 
 ```bash
 dart pub global activate flutterfire_cli
-flutterfire configure        # choisir votre projet et la plateforme android
+flutterfire configure        # choose your project and the android platform
 ```
 
-Dans la console Firebase :
-- créez une base **Cloud Firestore** ;
-- activez **Authentication → Google**, puis copiez l'« ID client Web » dans `.env` ;
-- ajoutez l'empreinte **SHA-1** de votre clé de debug Android (et de votre clé de production) dans les paramètres de l'application Android.
+In the Firebase console:
+- create a **Cloud Firestore** database;
+- enable **Authentication → Google**, then copy the "Web client ID" into `.env`;
+- add the **SHA-1** fingerprint of your Android debug key (and of your release key) in the Android app settings.
 
-### 4. Générer le code et lancer
+### 4. Generate code and run
 
 ```bash
-# Dans movie_data
+# In movie_data
 cd ../movie_data
 flutter pub get
 dart run build_runner build
 
-# Dans movies
+# In movies
 cd ../movies
 flutter pub get
 dart run build_runner build
@@ -134,43 +134,43 @@ flutter run
 ## Tests
 
 ```bash
-# Tests unitaires du plugin
+# Plugin unit tests
 cd movie_plugin && flutter test
 
-# Tests de widgets de l'application
+# App widget tests
 cd movies && flutter test test/widget_tests.dart
 
-# Test d'intégration (émulateur allumé)
+# Integration test (with an emulator running)
 cd movies && flutter test integration_test/movie_tests.dart -d emulator-5554
 ```
 
-## Version finale (APK)
+## Release build (APK)
 
-La signature utilise un fichier `android/key.properties` et un keystore, **non publiés** dans ce dépôt.
+Signing uses an `android/key.properties` file and a keystore, which are **not published** in this repository.
 
 ```bash
 cd movies
 flutter build apk --release
-# Fichier : build/app/outputs/flutter-apk/app-release.apk
+# Output: build/app/outputs/flutter-apk/app-release.apk
 ```
 
-## Adaptations par rapport au livre
+## Changes from the book
 
-Le livre a été écrit sous macOS et pour des versions plus anciennes des outils. Le projet a été réalisé sous **Ubuntu** avec les versions récentes, ce qui a demandé plusieurs adaptations : nouvelles API de Riverpod 3, AutoRoute 11, freezed 4, google_sign_in 7 et infinite_scroll_pagination 5, configuration Android de la connexion Google, plugin uniquement pour Android, et correction de plusieurs bugs du code d'origine. Le détail figure dans le rapport du projet.
+The book was written on macOS for older versions of the tools. This project was built on **Ubuntu** with current versions, which required several adaptations: new APIs in Riverpod 3, AutoRoute 11, freezed 4, google_sign_in 7 and infinite_scroll_pagination 5, Android setup for Google sign-in, an Android-only plugin, and fixes for several bugs in the original code. Details are in the project report.
 
-## Auteur
+## Author
 
-**Angelo RANTOANDRIANTSOA** — projet de travaux pratiques de développement mobile, octobre 2026.
+**Angelo RANTOANDRIANTSOA** — mobile development hands-on project, October 2026.
 
-D'après le livre *Mastering Flutter* de Kevin Moore (BPB Publications).
+Based on the book *Mastering Flutter* by Kevin Moore (BPB Publications).
 
-## Crédits
+## Credits
 
-Ce produit utilise l'API TMDB mais n'est ni approuvé ni certifié par TMDB.
-Les données et images des films proviennent de [The Movie Database (TMDB)](https://www.themoviedb.org/).
+This product uses the TMDB API but is not endorsed or certified by TMDB.
+Movie data and images are provided by [The Movie Database (TMDB)](https://www.themoviedb.org/).
 
-## Licence
+## License
 
-© 2026 Angelo RANTOANDRIANTSOA — **tous droits réservés**.
-Ce code est publié uniquement pour consultation et évaluation ; toute copie ou réutilisation
-sans autorisation écrite de l'auteur est interdite. Voir [LICENSE](LICENSE).
+© 2026 Angelo RANTOANDRIANTSOA — **all rights reserved**.
+This code is published for viewing and evaluation purposes only; copying or reusing it
+without the author's written permission is not allowed. See [LICENSE](LICENSE).

@@ -1,24 +1,24 @@
-# movies — application
+# movies — app
 
-Application Flutter *Movies* : interface, navigation, gestion de l'état et tests.
-La présentation complète du projet se trouve dans le [README principal](../README.md).
+The *Movies* Flutter app: UI, navigation, state management and tests.
+See the [main README](../README.md) for the full project overview.
 
 ## Structure
 
-| Dossier | Contenu |
+| Folder | Contents |
 |---|---|
-| `lib/main.dart` | Démarrage : `.env`, Firebase, Crashlytics, fenêtre desktop |
-| `lib/providers.dart` | Providers Riverpod (service TMDB, dépôt, base de données, connexion, préférences) |
-| `lib/router/` | Routes AutoRoute (onglets, détails, vidéo, liste) |
-| `lib/ui/screens/` | Écrans : accueil, genre, détails, favoris, vidéo, liste paginée |
-| `lib/ui/widgets/` | Widgets réutilisables |
-| `lib/ui/theme/` | Couleurs, polices et thème |
-| `lib/ui/movie_viewmodel.dart` | View model (accès aux données via le dépôt) |
-| `lib/utils/` | Utilitaires et classe `Prefs` |
-| `test/` | Tests de widgets |
-| `integration_test/` | Test d'intégration |
+| `lib/main.dart` | Startup: `.env`, Firebase, Crashlytics, desktop window |
+| `lib/providers.dart` | Riverpod providers (TMDB service, repository, database, sign-in, preferences) |
+| `lib/router/` | AutoRoute routes (tabs, details, video, listing) |
+| `lib/ui/screens/` | Screens: home, genre, details, favorites, video, paginated listing |
+| `lib/ui/widgets/` | Reusable widgets |
+| `lib/ui/theme/` | Colors, fonts and theme |
+| `lib/ui/movie_viewmodel.dart` | View model (data access through the repository) |
+| `lib/utils/` | Utilities and the `Prefs` class |
+| `test/` | Widget tests |
+| `integration_test/` | Integration test |
 
-## Dépendances locales
+## Local dependencies
 
 ```yaml
 movie_data:
@@ -27,14 +27,14 @@ movie_plugin:
   path: ../movie_plugin
 ```
 
-## Commandes utiles
+## Useful commands
 
 ```bash
-dart run build_runner build      # providers et routes
-flutter run                      # lancer en debug
+dart run build_runner build      # providers and routes
+flutter run                      # run in debug mode
 flutter test test/widget_tests.dart
-flutter build apk --release      # version finale signée
+flutter build apk --release      # signed release build
 ```
 
-Les fichiers `.env`, `android/key.properties`, le keystore et la configuration Firebase
-ne sont pas publiés : voir le README principal pour les recréer.
+The `.env` file, `android/key.properties`, the keystore and the Firebase configuration
+are not published: see the main README to recreate them.

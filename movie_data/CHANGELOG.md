@@ -1,3 +1,3 @@
 ## 0.0.1
 
-* Première version : service TMDB, modèles freezed, bases drift et Firestore, dépôt et connexion Google.
+* Initial release: TMDB service, freezed models, drift and Firestore databases, repository and Google sign-in.
